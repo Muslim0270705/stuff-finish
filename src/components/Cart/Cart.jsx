@@ -7,6 +7,7 @@ import {
 
 import styles from "../../styles/Cart.module.css";
 import { sumBy } from "../../utils/common";
+import {Link} from "react-router-dom";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ const Cart = () => {
               const { title, category, images, price, id, quantity } = item;
 
               return (
-                <div className={styles.item} key={id}>
+                <Link to={`/products/${id}`} className={styles.item} key={id}>
                   <div
                     className={styles.image}
                     style={{ backgroundImage: `url(${images[0]})` }}
@@ -87,7 +88,7 @@ const Cart = () => {
                       />
                     </svg>
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>
